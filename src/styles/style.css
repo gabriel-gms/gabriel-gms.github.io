@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color:rgb(60, 58, 58);
+    height: 100%;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#areaGame {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+#adivinharPalavra {
+    display: none;
+}
+
+button {
+    margin-top: 10px;
+    background-color: rgba(72, 129, 16, 0.753);
+    height: 30px;
+    border-radius: 5px;
+}
+
+h2, p, footer {
+    color: rgb(209, 209, 198);
+}
