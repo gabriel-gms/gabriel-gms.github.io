@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <title>Jogo da forca</title>
+</head>
+<body>
+    <div id="areaGame">
+        <div id="definirPalavra">
+            <h2>Escolha uma palavra</h2>
+            <input id="define" type="text" autocomplete="off"><br>
+            <button id="btnDefine">Definir palavra</button>
+        </div>
+        <div id="adivinharPalavra">
+            <div id="imgForca">
+                <p id="jaEscolhidas"> Já escolhidas: </p>
+                <img src="/src/img/forca.png">
+                <footer></footer>
+            </div>
+            <h2>Escolha uma letra
+                <p id="underline"></p>
+            </h2>
+            <input id="descobrir" type="text" autocomplete="off"><br>
+            <button id="btnDescobrir">Confirmar letra</button>
+            <div id="options">
+                <button id="btnRevelar">Revelar palavra</button>
+                <button id="btnRecomecar">Recomeçar o jogo</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/src/script.js"></script>
+</html>
