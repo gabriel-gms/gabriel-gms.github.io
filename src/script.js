@@ -64,7 +64,7 @@ btnDescobrir.addEventListener('click', ()=>{
 btnRevelar.addEventListener('click', ()=>{
     palavraCerta.forEach((v,i)=>{
         incognita[i] = v
-        document.querySelector('p').innerHTML = incognita.join(' ')
+        document.querySelector('#underline').innerHTML = incognita.join(' ')
     })
 })
 
