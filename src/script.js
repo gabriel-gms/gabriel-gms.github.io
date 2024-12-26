@@ -14,7 +14,7 @@ let incognita = []
 let contError = 0
 const imgs = ['src/img/forca.png', 'src/img/forca1.png', 'src/img/forca2.png', 'src/img/forca3.png', 'src/img/forca4.png',
             'src/img/forca5.png', 'src/img/forca6.png']
-let chutes 
+let chutes = []
 
 //////////////////////// Eventos de clique /////////////////////////////////
 btnDefine.addEventListener('click', ()=>{
@@ -35,9 +35,10 @@ btnDefine.addEventListener('click', ()=>{
 })
 
 btnDescobrir.addEventListener('click', ()=>{
-    if(descobrir.value !== ''){
-        chutes = descobrir.value.toLowerCase()
-        jaEscolhidas.innerHTML += `${chutes} `
+    valorRepetido()
+    if(descobrir.value !== '' || descobrir.value != ''){
+        chutes.push(descobrir.value.toLowerCase())
+        jaEscolhidas.innerHTML = `${chutes.join(' ')}`
 
         palavraCerta.forEach((v,i,a)=>{
             if(v === descobrir.value.toLowerCase()){
@@ -56,7 +57,10 @@ btnDescobrir.addEventListener('click', ()=>{
 
         descobrir.value = ''
     }
-    else {
+    else if(descobrir.value == '') {
+        alert('Já escolhida')
+    }
+    else{
         alert ('voce precisar digitar uma letra para adivinhar')
     }
 })
@@ -106,4 +110,12 @@ function defaultValues (){
     imgForca.setAttribute('src', `${imgs[0]}`)
     document.querySelector('#definirPalavra').style.display = 'block'
     document.querySelector('#adivinharPalavra').style.display = 'none'
+}
+
+function valorRepetido(){
+    chutes.map((v)=>{
+        if(v === descobrir.value){
+            return descobrir.value = ''
+        }
+    })
 }

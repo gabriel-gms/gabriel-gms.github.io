@@ -28,3 +28,8 @@ button {
 h2, p, footer {
     color: rgb(209, 209, 198);
 }
+
+#escolha {
+    display: flex;
+    justify-content: center;
+}
