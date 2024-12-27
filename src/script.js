@@ -35,17 +35,29 @@ btnDefine.addEventListener('click', ()=>{
 })
 
 btnDescobrir.addEventListener('click', ()=>{
-    valorRepetido()
-    if(descobrir.value !== '' || descobrir.value != ''){
-        chutes.push(descobrir.value.toLowerCase())
-        jaEscolhidas.innerHTML = `${chutes.join(' ')}`
-
-        palavraCerta.forEach((v,i,a)=>{
-            if(v === descobrir.value.toLowerCase()){
-                incognita[i] = descobrir.value.toLowerCase()
-                document.querySelector('#underline').innerHTML = incognita.join(' ')
+    let repetido = false
+    if(descobrir.value !== ''){
+        for(let i = 0; i<chutes.length; i++){
+            if(chutes[i] === descobrir.value){
+                repetido = true
             }
-        })
+        }
+        console.log(repetido);
+
+        if(repetido === false){
+
+            chutes.push(descobrir.value.toLowerCase())
+            jaEscolhidas.innerHTML = `${chutes.join(' ')}`
+            console.log(chutes);
+            
+    
+            palavraCerta.forEach((v,i,a)=>{
+                if(v === descobrir.value.toLowerCase()){
+                    incognita[i] = descobrir.value.toLowerCase()
+                    document.querySelector('#underline').innerHTML = incognita.join(' ')
+                }
+            })
+        }
         
         if(!palavraCerta.includes(descobrir.value.toLowerCase())){
             error()
@@ -55,14 +67,14 @@ btnDescobrir.addEventListener('click', ()=>{
             document.querySelector('footer').innerHTML = 'VOCÊ GANHOU, PARABÉNS, VAMOS JOGAR NOVAMENTE!!!!'
         }
 
-        descobrir.value = ''
     }
-    else if(descobrir.value == '') {
+    if(repetido === true) {
         alert('Já escolhida')
     }
-    else{
+    if(descobrir.value === ''){
         alert ('voce precisar digitar uma letra para adivinhar')
     }
+    descobrir.value = ''
 })
 
 btnRevelar.addEventListener('click', ()=>{
@@ -110,12 +122,4 @@ function defaultValues (){
     imgForca.setAttribute('src', `${imgs[0]}`)
     document.querySelector('#definirPalavra').style.display = 'block'
     document.querySelector('#adivinharPalavra').style.display = 'none'
-}
-
-function valorRepetido(){
-    chutes.map((v)=>{
-        if(v === descobrir.value){
-            return descobrir.value = ''
-        }
-    })
 }
