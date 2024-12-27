@@ -114,7 +114,7 @@ function error(){
 
 function defaultValues (){
     incognita = []
-    chutes = ''
+    chutes = []
     jaEscolhidas.innerHTML = ''
     document.querySelector('footer').innerHTML = ''
     contError = 0
