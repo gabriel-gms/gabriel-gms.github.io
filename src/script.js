@@ -42,7 +42,6 @@ btnDescobrir.addEventListener('click', ()=>{
                 repetido = true
             }
         }
-        console.log(repetido);
 
         if(repetido === false){
 
@@ -116,10 +115,14 @@ function error(){
 function defaultValues (){
     incognita = []
     chutes = ''
-    jaEscolhidas.innerHTML = 'Já escolhidas:'
+    jaEscolhidas.innerHTML = ''
     document.querySelector('footer').innerHTML = ''
     contError = 0
     imgForca.setAttribute('src', `${imgs[0]}`)
     document.querySelector('#definirPalavra').style.display = 'block'
     document.querySelector('#adivinharPalavra').style.display = 'none'
+}
+
+function removerAcentos(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
